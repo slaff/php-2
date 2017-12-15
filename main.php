@@ -3,5 +3,7 @@ require_once 'autoload.php';
 
 use Libs\{Calc, SciCalc, Dog};
 
-$dog = new Dog(); // FQCN: Libs\Dog
-echo $dog->speedRun(2);
+$cal = new SciCalc();
+echo $cal->getSerialNumber();
+
+$cal->clear();
