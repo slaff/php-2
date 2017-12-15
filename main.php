@@ -1,15 +1,94 @@
 <?php
-// Constant and variable identifiers
+// Conditional and looping constructs
+$age = 20;
+$b = "213123213sadfsafsf";
 
 
-define('MAX_AGE', 20);
+$condition1 = $age > 20 && $age < 60; // all parts MUST be true
+$condition2 = $age == 13 || $age == 66;// at least one part MUST be true
 
-$a = "123a5sasas11";
-$b = 20.1;
+$condition3 = $age == 13  || $age == 66 && ($age == 10 || $age > 3 + $b) + null ; // ? 
+            //                  false  && ( false || 
 
-// MAX_AGE = 12; // This is error
+if($condition3) {
+  echo "Yes, it is true";
+}
 
-// echo MAX_AGE;
+$ticketPrice = 0;
 
-echo MAX_AGE  + ($a*$b) * MAX_age; // ? 123*20.1*"MAX_age" + 20 = 123*20.1*0 + 20
+if($age < 2) {
+  $ticketPrice = 0;
+}
+else if($age > 2 && $age < 16) {
+  $ticketPrice = 30;
+}
+else {
+  $ticketPrice = 60;
+}
+
+
+echo $ticketPrice; // 60
+
+
+// looping constructs
+$rows = [
+    "John",
+    20,
+];
+
+
+echo "\n";
+
+//for
+for($i=0; $i < count($rows); $i++) {
+   echo "$i => ".$rows[$i]."\n"; // 0 => $rows[0]; 0=>John 
+}
+
+exit;
+
+//foreach
+foreach($rows as $key => $value) {
+   echo $key . " = " . $value ."\n";
+}
+
+
+//while
+while($a == 22) {
+  echo "THERE";
+}
+
+//do .. while
+do {
+  echo "HERE"; 
+}
+while($a > 22);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
