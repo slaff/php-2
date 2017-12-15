@@ -2,10 +2,10 @@
 namespace Libs;
 
 class Calc {
-	const PI=3.14;
+	const PI = 3.14;
 
         // property
-	private $memory;
+	protected $memory;
 
         // methods
 	public function plus(float $a, float $b) {
@@ -25,7 +25,7 @@ class Calc {
                
            $this->memory = $result;
        	   return $result;
-         }
+        }
 
         // method
 	public function minus($a, $b) {
@@ -36,4 +36,29 @@ class Calc {
         public function getMemory(){
            return $this->memory;
         }
+
+	protected function clear(){
+           $this->memory = 0;
+        }
+
+	private function test() {}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

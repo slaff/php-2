@@ -1,6 +1,15 @@
 <?php
-namespace Libs\Calc;
+namespace Libs;
 
-function multi($a, $b) {
-  return $a * $b;
+class SciCalc extends Calc {
+   public function __construct() {
+     $this->clear();
+   }
+
+
+   public function getMem() {
+     // $this->test(); // Will break with fatal error
+     return $this->memory;
+   }
 }
+
