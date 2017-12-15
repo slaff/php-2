@@ -57,7 +57,13 @@ class Calc {
 
 	private function test() {}
 
-	
+
+	public function __destruct() {
+           echo "Destroyed";
+        }
+        
+        // add the magic method __toString()
+	// return "string with the serial number and memory";
 }
 
 
