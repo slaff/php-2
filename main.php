@@ -48,17 +48,18 @@ echo $rows[2]["age"]; // 42
 
 echo $rows[2]["age"][1] . $rows[1]["age"][0]; // 6 and 22
 
+// and null
 
+$var; // == $var = null
 
+echo "[one". null. "two]"; // [onetwo]
+echo 2 + null; // 2+0 = 2
 
-
-
-
-
-
-
-
-
+// resources
+$fp = fopen("/tmp/data.txt","r");
+fread($fp, 200);
+//...
+fclose($fp);
 
 
 
