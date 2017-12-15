@@ -1,3 +1,5 @@
+<html>
+<body>
 <?php
 // Functions
 
@@ -5,7 +7,7 @@ define('MAX_INT', 10);
 
 $d = 10; // GLOBAL variable
 
-function plus($a, $b) {
+function plus(float $a, float $b) {
    global $d;
    echo "[$d]".MAX_INT; // constants don't need the global keyword
 
@@ -19,4 +21,12 @@ function minus($a, $b) {
 }
 
 plus(1,2);
+?>
+</body>
 
+<?php
+  echo "<!-- comment -->";
+?>
+
+<?= "<!-- comment -->"; ?>
+</html>
