@@ -6,5 +6,5 @@ use Libs\Calc;
 
 
 $calc = new Calc();
-$calc->minus(1, 3);
+$calc->multi(5, 6);
 echo $calc->getMemory()."\n"; // ERROR
