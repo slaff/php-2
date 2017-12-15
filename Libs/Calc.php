@@ -37,16 +37,6 @@ class Calc {
        	   return $result;
         }
 
-	public function multi($a, $b) {
-		 $res=0;		
-	for ($i=0; $i<$b; $i++)
-		{
-			$res=$this->plus($res,$a);
-		}
-           $this->memory = $res;
-	   return $this->memory;
-	}
-
         // method
 	public function minus($a, $b) {
            $this->memory = $b - $a;

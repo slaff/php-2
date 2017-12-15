@@ -14,12 +14,12 @@ class Dog
 		
 	} 
 	
-	public get_race(){
+	public function getRace(){
 		return $this->race;	
 	}
 
-	public bark($race){
-		if ($this->race=="doperman")
+	public function bark($race){
+		if ($this->race=="doberman") 
 		{
 			return "WOOF WOOF";
 		}else 
@@ -28,7 +28,7 @@ class Dog
 		}
 	}
 	
-	public speed_run($legs)
+	public function speedRun($legs)
 	{
 		if ($legs==4){
 			return "fast";
@@ -37,8 +37,6 @@ class Dog
 			return "slow";
 		}
 	}
-
-
 }
 
 ?>

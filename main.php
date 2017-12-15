@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__.'/Libs/Calc.php';
-require_once __DIR__.'/Libs/SciCalc.php';
+require_once 'autoload.php';
 
-use Libs\{Calc, SciCalc};
+use Libs\{Calc, SciCalc, Dog};
 
-// TODO: Use the Dog class...
+$dog = new Dog(); // FQCN: Libs\Dog
+echo $dog->speedRun(2);
