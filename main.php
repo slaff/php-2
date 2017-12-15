@@ -1,23 +1,15 @@
 <?php
-// Type casting and ...
+// Constant and variable identifiers
+
+
+define('MAX_AGE', 20);
+
 $a = "123a5sasas11";
 $b = 20.1;
 
-// var_dump((int)$a);
+// MAX_AGE = 12; // This is error
 
-// juggling
+// echo MAX_AGE;
 
-$c = $a + $b;
+echo MAX_AGE  + ($a*$b) * MAX_age; // ? 123*20.1*"MAX_age" + 20 = 123*20.1*0 + 20
 
-// var_dump($c);
-
-// Concatenation
-
-$d = $a . $b; // 
-
-// echo $d;
-
-echo ($a + $b)/($a.$b); // ? (143.1) / ("123a5sasas1120.1") = 143.1 / 123
-
-
-?>
