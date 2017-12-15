@@ -18,7 +18,7 @@ class Calc {
         }
 
         // methods
-	public function plus(float $a, float $b) {
+	final public function plus(float $a, float $b) {
 	   return $a + $b;
 	}
 
@@ -38,7 +38,7 @@ class Calc {
         }
 
         // method
-	public function minus($a, $b) {
+	final public function minus($a, $b) {
            $this->memory = $b - $a;
 	   return $this->memory;
 	}

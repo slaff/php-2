@@ -6,7 +6,7 @@ namespace Libs;
 *  and the parent class is Calc
 */
 class SciCalc extends Calc {
-   
+  
    public function __construct()
    {
 	// ... 
