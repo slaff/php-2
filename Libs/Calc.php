@@ -3,9 +3,19 @@ namespace Libs;
 
 class Calc {
 	const PI = 3.14;
+        private $serialNumber = 0;
 
         // property
 	protected $memory;
+
+	public function __construct($serial = 0) {
+           if($serial == 0) {
+             $this->serialNumber = \rand(1,99999);
+           }
+           else {
+             $this->serialNumber = $serial;
+           }
+        }
 
         // methods
 	public function plus(float $a, float $b) {
@@ -37,11 +47,17 @@ class Calc {
            return $this->memory;
         }
 
+	public function getSerialNumber(){
+           return $this->serialNumber;
+        }
+
 	protected function clear(){
            $this->memory = 0;
         }
 
 	private function test() {}
+
+	
 }
 
 
