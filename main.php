@@ -1,21 +1,22 @@
 <?php
-// Conditional and looping constructs
+// Functions
 
-//for
-for($i=0; $i < 10; $i++) {
-  // ...
-  if(!($i == 3)) {
-    $i = $i + 2;
-    continue;
-  }  
+define('MAX_INT', 10);
 
-  if($i == 5) {
-    break;
-  }
+$d = 10; // GLOBAL variable
 
+function plus($a, $b) {
+   global $d;
+   echo "[$d]".MAX_INT; // constants don't need the global keyword
 
-  echo $i."\n";
+   $c = 5; // LOCAL variable
+
+   return $a + $b;
 }
 
-echo "Finish\n";
+function minus($a, $b) {
+   return $b - $a;
+}
+
+plus(1,2);
 
