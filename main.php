@@ -2,10 +2,9 @@
 require_once __DIR__.'/Libs/Calc.php';
 require_once __DIR__.'/Libs/SciCalc.php';
 
-use Libs\Calc as Calculator;
+use Libs\Calc;
 
-echo Calculator\plus(1,2);
 
-echo Calculator\PI; 
-
-echo Calculator\multi(1,2); 
+$calc = new Calc();
+$calc->minus(1, 3);
+echo $calc->getMemory()."\n"; // ERROR

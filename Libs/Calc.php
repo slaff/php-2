@@ -1,21 +1,30 @@
 <?php
-namespace Libs\Calc;
+namespace Libs;
 
-const PI=3.14;
+class Calc {
+	const PI=3.14;
 
-function plus(float $a, float $b) {
-   return $a + $b;
-}
+        // property
+	private $memory;
 
-function minus($a, $b) {
-   return $b - $a;
-}
+        // methods
+	public function plus(float $a, float $b) {
+	   return $a + $b;
+	}
 
-// 1. Create a function called area
-// 2. The function accepts one parameter called radius
-// 3. In the the file you should define a constant called PI with 3.14
-// 4. The function should return π * pow(r,2);
+        // 3*2 = 3 + 3
+	// TODO: create a method called multi
+        // method accepts two parameters $a, $b
+        // in the body you use loop and the internal plus method
+	// to get the final result.
 
-function pow($a, $b) {
-  return \pow($a, $b);
+        // method
+	public function minus($a, $b) {
+           $this->memory = $b - $a;
+	   return $this->memory;
+	}
+
+        public function getMemory(){
+           return $this->memory;
+        }
 }
