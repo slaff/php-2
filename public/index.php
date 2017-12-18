@@ -1,11 +1,11 @@
 <?php
 //declare(strict_types=1);
-require_once 'autoload.php';
+require_once __DIR__.'/../autoload.php';
 
 use Libs\{Db\Customer, Db\Repository};
 
 
-$config = include_once __DIR__.'/config/application.config.php';
+$config = include_once __DIR__.'/../config/application.config.php';
 
 // Get from DB a customer with id 4
 $repository = new Repository($config['db']);
@@ -13,6 +13,9 @@ $customer = $repository->findById(4);
 if($customer == null) {
   $customer = new Customer();
 }
+
+header("Content-Type: text/html; charset=utf-16");
+
 
 echo $customer->firstname."\n";
 
