@@ -2,7 +2,17 @@
 namespace Libs\Db;
 
 class Repository {
+
+  public function __construct($dbConfig)  {
+     // TODO: create connection to DB
+  }
+
+
   public function findById(int $id) {
+     // TODO: create SELECT statement 
+     // get all information for customer with id $id
+     // fetch that information as associative array
+
      $customer = new Customer();
 
      // Hydration: ClassProperties, ClassMethods
