@@ -6,6 +6,19 @@ use Libs\{Calc, SciCalc, MyHouse, HouseInterface};
 
 $calc = new SciCalc();
 
+/**
+
+                   Throwable
+                  /         \
+               Error       Exception
+              /              /
+ ArgumentCountError       MyException
+                           /
+                         MySpecificException
+              
+
+*/
+
 try {
   $calc->dontCallMe();
 }
