@@ -64,6 +64,10 @@ class Calc {
         
         // add the magic method __toString()
 	// return "string with the serial number and memory";
+	public function __toString() {
+          return $this->serialNumber."|".$this->memory;
+        }
+
 }
 
 

@@ -1,16 +1,20 @@
 <?php
 require_once 'autoload.php';
 
-use Libs\{Calc, SciCalc, Dog};
+use Libs\{Calc, SciCalc, MyHouse, HouseInterface};
 
-$cal = new SciCalc();
-echo $cal->getSerialNumber();
+$house = new MyHouse();
 
-$cal->clear();
+if($house instanceof HouseInterface) {
+   $house->openDoor();
+} 
 
 
-echo $cal;
+function test(HouseInterface $house) {
+   echo "OK.";
+}
 
-unset($cal);
-var_dump($cal);
+test($house);
 
+// unset($cal);
+// var_dump($cal);
