@@ -3,25 +3,33 @@ namespace Libs\Db;
 
 class Repository {
 
+  private $pdo;
+
   public function __construct($dbConfig)  {
-     // TODO: create connection to DB
+     // create connection to DB
+     $this->pdo = new \PDO($dbConfig['dsn'], 
+                          $dbConfig['username'], 
+                          $dbConfig['password'], 
+                          $dbConfig['options']);
+
   }
 
-
   public function findById(int $id) {
-     // TODO: create SELECT statement 
+     // create SELECT statement 
+     $stmt = $this->pdo->query('SELECT * FROM customers WHERE id = '.$id);
+     
+     if(!$stmt->rowCount()) {
+        return null;
+     }
+
      // get all information for customer with id $id
      // fetch that information as associative array
+     $row  = $stmt->fetch(\PDO::FETCH_ASSOC);
 
      $customer = new Customer();
 
      // Hydration: ClassProperties, ClassMethods
-     $row = [
-        "id" => 20,
-        "firstname" => "ABC",
-        "lastname"  => "BCA"
-     ];
-
+      
      // foreach loop
      foreach($row as $name => $value) {
         $customer->$name = $value;
