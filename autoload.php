@@ -5,7 +5,7 @@ function autoload($className)
    // Libs\Dog -> __DIR__.'/Libs/Dog.php';
    $fileName = str_replace('\\','/', $className); // Libs/Dog
 
-   require __DIR__ . '/' . $fileName . '.php';
+   require __DIR__ . '/src/' . $fileName . '.php';
 }
 
 

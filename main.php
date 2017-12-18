@@ -2,15 +2,18 @@
 //declare(strict_types=1);
 require_once 'autoload.php';
 
-use Libs\{Calc, SciCalc, MyHouse, HouseInterface};
+use Libs\{Db\Customer, Db\Repository};
 
-$calc = new SciCalc();
-$calc->plus(1,2);
-// echo $calc->getMemory()."\n";
+$config = include_once __DIR__.'/config/application.config.php';
 
-$calc2 = new SciCalc();
-// $calc2->clear();
+// TODO: Get from DB a customer with id 4
 
-$calc3 = clone $calc2;
+$repository = new Repository($config['db']);
+$customer = $repository->findById(4);
 
-echo SciCalc::getCount(); // ? 3 or 2
+// We work with the entity object
+
+$customer->lastName = "Spirou";
+
+// TODO: Store the data in the database
+$repository->persist($customer);

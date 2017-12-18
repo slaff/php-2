@@ -8,13 +8,15 @@ namespace Libs;
 class SciCalc extends Calc {
    use TouchScreenTrait;
 
-   private static $count; // Counts the produced SciCalc
+   protected static $count; // Counts the produced SciCalc
 
    public function __construct()
    {
 	// ... 
         parent::__construct();
 
+
+        //self::$count++; // references the count in the current class
 
         static::$count = static::$count + 1;  // static property syntax 
 					      // looks like this
@@ -23,9 +25,9 @@ class SciCalc extends Calc {
         // ...
    }
 
-   public static function getCount() {
+    public static function getCount() {
      // $this->clear(); // Usage of $this is NOT allowed in static methods
-     return static::$count;
+     return self::$count;
    }
 
    public function dontCallMe() {

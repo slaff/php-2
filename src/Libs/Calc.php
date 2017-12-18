@@ -5,6 +5,8 @@ class Calc {
 	const PI = 3.14;
         private $serialNumber = 0;
 
+        protected static $count; // Counts the produced SciCalc
+
         // property
 	protected $memory;
 
@@ -16,6 +18,11 @@ class Calc {
              $this->serialNumber = $serial;
            }
         }
+
+        public static function getCount() {
+	     // $this->clear(); // Usage of $this is NOT allowed in static methods
+	     return static::$count;
+	}
 
         // methods
 	final public function plus(float $a, float $b) {
