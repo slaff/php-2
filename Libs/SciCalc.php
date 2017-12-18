@@ -6,7 +6,8 @@ namespace Libs;
 *  and the parent class is Calc
 */
 class SciCalc extends Calc {
-  
+   use TouchScreenTrait;
+
    public function __construct()
    {
 	// ... 
@@ -20,16 +21,30 @@ class SciCalc extends Calc {
      throw $ex;
    }
 
-   
-
-   public function getMemory() {
-     $result = parent::getMemory();
- 
-     return (float)$result;
-   }
-
    public function clear() {
       parent::clear();
    }
+
+
+   private function getSpeed() {
+   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

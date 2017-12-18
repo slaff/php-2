@@ -19,7 +19,8 @@ class Calc {
 
         // methods
 	final public function plus(float $a, float $b) {
-	   return $a + $b;
+           $this->memory = $a + $b;
+	   return $this->memory;
 	}
 
         // 3*2 = 3 + 3
@@ -59,7 +60,7 @@ class Calc {
 
 
 	public function __destruct() {
-           echo "Destroyed";
+           // echo "Destroyed";
         }
         
         // add the magic method __toString()
@@ -68,23 +69,8 @@ class Calc {
           return $this->serialNumber."|".$this->memory;
         }
 
+
+        public function getTouchedArea() {
+            return [1,1];
+        }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

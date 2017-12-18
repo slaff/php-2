@@ -5,32 +5,13 @@ require_once 'autoload.php';
 use Libs\{Calc, SciCalc, MyHouse, HouseInterface};
 
 $calc = new SciCalc();
+$calc->plus(1,2);
+echo $calc->getMemory()."\n";
 
-/**
+// $calc2 = $calc; // Here $calc and $calc2 use the same memory 
+$calc2 = clone $calc; // Use different memory storage for $calc and $calc2
 
-                   Throwable
-                  /         \
-               Error       Exception
-              /              /
- ArgumentCountError       MyException
-                           /
-                         MySpecificException
-              
+echo $calc2->getMemory()."\n"; // 3
 
-*/
-
-try {
-  $calc->dontCallMe();
-}
-// Note: First put specific exceptions and then generic exceptoins
-catch(\Libs\CalcException | OtherException $ex) {  
-   // doSomething();
-}
-catch(Exception $ex) {
-  var_dump($ex);
-}
-finally {
-  echo "It "; 
-}
-
-echo "Works!";
+$calc2->plus(3,4);
+echo $calc->getMemory()."\n"; // ?3 
