@@ -8,9 +8,12 @@ class Customer {
 
 public $id;
 
-public $firstName;
+/**
+* @Column("firstName") <!--- This is example of mapping
+*/
+public $firstname;
 
 
-public $lastName;
+public $lastname;
 
 }
