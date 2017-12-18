@@ -6,12 +6,11 @@ use Libs\{Calc, SciCalc, MyHouse, HouseInterface};
 
 $calc = new SciCalc();
 $calc->plus(1,2);
-echo $calc->getMemory()."\n";
+// echo $calc->getMemory()."\n";
 
-// $calc2 = $calc; // Here $calc and $calc2 use the same memory 
-$calc2 = clone $calc; // Use different memory storage for $calc and $calc2
+$calc2 = new SciCalc();
+// $calc2->clear();
 
-echo $calc2->getMemory()."\n"; // 3
+$calc3 = clone $calc2;
 
-$calc2->plus(3,4);
-echo $calc->getMemory()."\n"; // ?3 
+echo SciCalc::getCount(); // ? 3 or 2
