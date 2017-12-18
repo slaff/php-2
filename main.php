@@ -10,10 +10,7 @@ try {
   $calc->dontCallMe();
 }
 // Note: First put specific exceptions and then generic exceptoins
-catch(\Libs\CalcException $ex) {  
-   // doSomething();
-}
-catch(OtherException $ex) {  
+catch(\Libs\CalcException | OtherException $ex) {  
    // doSomething();
 }
 catch(Exception $ex) {
