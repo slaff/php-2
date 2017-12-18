@@ -5,14 +5,6 @@ require_once 'autoload.php';
 use Libs\{Db\Customer, Db\Repository};
 
 
-$a = "b";
-$b = 123;
-
-// Variable-Variable Example
-echo $$a; // => ${"b"}  => 123
-// $object->$name // $object->id
-
-
 $config = include_once __DIR__.'/config/application.config.php';
 
 // Get from DB a customer with id 4

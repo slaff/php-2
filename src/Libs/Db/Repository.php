@@ -16,6 +16,13 @@ class Repository {
 
   public function findById(int $id) {
      // create SELECT statement 
+
+
+     // TODO: 1. change the query to use prepared statement
+     //       2. set the id as named parameter and execute the query 
+     // $id = "123; DELETE FROM customers; "
+     //   
+
      $stmt = $this->pdo->query('SELECT * FROM customers WHERE id = '.$id);
      
      if(!$stmt->rowCount()) {
