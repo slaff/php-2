@@ -1,20 +1,26 @@
 <?php
+//declare(strict_types=1);
 require_once 'autoload.php';
 
 use Libs\{Calc, SciCalc, MyHouse, HouseInterface};
 
-$house = new MyHouse();
+$calc = new SciCalc();
 
-if($house instanceof HouseInterface) {
-   $house->openDoor();
-} 
-
-
-function test(HouseInterface $house) {
-   echo "OK.";
+try {
+  $calc->dontCallMe();
+}
+// Note: First put specific exceptions and then generic exceptoins
+catch(\Libs\CalcException $ex) {  
+   // doSomething();
+}
+catch(OtherException $ex) {  
+   // doSomething();
+}
+catch(Exception $ex) {
+  var_dump($ex);
+}
+finally {
+  echo "It "; 
 }
 
-test($house);
-
-// unset($cal);
-// var_dump($cal);
+echo "Works!";

@@ -15,6 +15,13 @@ class SciCalc extends Calc {
         // ...
    }
 
+   public function dontCallMe() {
+     $ex = new CalcException();
+     throw $ex;
+   }
+
+   
+
    public function getMemory() {
      $result = parent::getMemory();
  
