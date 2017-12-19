@@ -23,19 +23,15 @@ function camelCase(array $matches) {
     return '$__'.$newName."()";
 }
 
-$pattern = '/^\$_{2}(\w{1,})\(\)$/i'; // Magic Method Matching
-$text = '$__SoMe_thInG()'; // -> $__someThing()
-
-$result = preg_replace_callback($pattern, 'camelCase',$text);
-
-var_dump($result);
+$pattern = '/^((\w+\.{0,1}\w+)+)@((\w+\.{0,1}\w+)+)$/i'; // Magic Method Matching
+$text = 'christina.spyrou.23@localhost'; // -> $__someThing()
 
 if(preg_match($pattern, $text, $matches)) {
-   echo "Valid Variable";
+   echo "Valid Email Address";
    var_dump($matches);
 }
 else {
-   echo "Not Valid Variable";
+   echo "Not Valid Email Address";
 }
 
 echo "</pre>";
