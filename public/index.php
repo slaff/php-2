@@ -1,13 +1,13 @@
 <?php
 //declare(strict_types=1);
-require_once __DIR__.'/../autoload.php';
-
-// require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 use Libs\{Db\Customer, Db\Repository};
 
 
 $config = include_once __DIR__.'/../config/application.config.php';
+
+$customer = new Customer();
 
 echo "<html><body>";
 echo "<pre>";
