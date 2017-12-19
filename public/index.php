@@ -10,21 +10,8 @@ $config = include_once __DIR__.'/../config/application.config.php';
 echo "<html><body>";
 echo "<pre>";
 
-function camelCase(array $matches) {
-    // SoMe_thInG -> someThing
-    $name = $matches[1]; // SoMe_thInG
-
-    $words = explode("_", $name);
-    $newName = strtolower($words[0]); // SoMe -> some
-    for($i=1; $i< count($words); $i++) {
-        $newName .= ucfirst(strtolower($words[$i])); 
-    }
-
-    return '$__'.$newName."()";
-}
-
-$pattern = '/^((\w+\.{0,1}\w+)+)@((\w+\.{0,1}\w+)+)$/i'; // Magic Method Matching
-$text = 'christina.spyrou.23@localhost'; // -> $__someThing()
+$pattern = '//'; 
+$text = '<a href="URL"></a>'; // TODO: match the URL and echo it
 
 if(preg_match($pattern, $text, $matches)) {
    echo "Valid Email Address";
