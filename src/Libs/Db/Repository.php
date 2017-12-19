@@ -52,13 +52,22 @@ class Repository {
   }
 
   public function persist(Customer $customer) {
-     // TODO: 1. try/catch mechanism
-     //       2. have transaction 
-     //       
-     //       3. Save the data in the database using named params 
-     //          -- if user with id exists => update the customer
-     //          -- otherwise -> insert the customer
-     //       4. If successful -> commit the transaction
-     //       5. Otherwise -> rollback
-  }
+    try{
+        $this->pdo->beginTransaction();
+	try {
+             $stmt = $this->pdo->prepare( "INSERT INTO customers (id, firstname, lastname) VALUES (:id,:first,:last)");
+             $stmt->execute([':id' =>$customer->id,':first' =>$customer->firstname,':last' =>$customer->lastname]);
+        }
+        catch(\PDOException $ex) {
+            $stmt = $this->pdo->prepare( "UPDATE customers SET lastname= :last WHERE id= :id");
+            $stmt->execute([':last' => $customer->lastname, ':id'=> $customer->id]);
+        }
+           
+        $this->pdo->commit();
+    }catch (\PDOException $e ){
+        var_dump($ex);
+        $this->pdo->rollBack();
+        throw $e;
+    }
+  } // persist
 }

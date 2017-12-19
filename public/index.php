@@ -8,7 +8,13 @@ use Libs\{Db\Customer, Db\Repository};
 $config = include_once __DIR__.'/../config/application.config.php';
 
 $repository = new Repository($config['db']);
-$customer = $repository->findById(4);
+$customer = $repository->findById(22);
+
+if($customer == null) {
+  $customer = new Customer(); 
+  $customer->firstname = "Demos";
+  // $customer->id = 4;
+}
 
 // We work with the entity object
 $customer->lastname = "Spyrou";
