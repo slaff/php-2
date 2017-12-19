@@ -7,16 +7,18 @@ use Libs\{Db\Customer, Db\Repository};
 
 $config = include_once __DIR__.'/../config/application.config.php';
 
-// Read the XML
-$data = file_get_contents(__DIR__.'/../composer.json');
+try {
+    // Get a soap client instance passing WSDL URL
+    $client = new SoapClient("http://footballpool.dataaccess.eu/data/info.wso?wsdl");
 
-$json = json_decode($data, true);
+    // Make the request. Returns a standard class object
+    $result = $client->TopGoalScorers(['iTopN' => 20]);
 
-// TODO: 1. Change "src\/Libs\/" => "src\/"
-//       2. Save/Display the array again as JSON
+    // $result contains the result of the traversed object structure
+    var_dump($result->TopGoalScorersResult->tTopGoalScorer);
+} catch (SoapFault $e){
+    //Handle error
+}
 
-// $json["require"]["swiftmailer/swiftmailer"] = "^132323";
-
-echo json_encode($json);
 
 
