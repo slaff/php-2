@@ -10,8 +10,8 @@ $config = include_once __DIR__.'/../config/application.config.php';
 echo "<html><body>";
 echo "<pre>";
 
-$pattern = "/^\\$([a-zA-Z_][a-zA-Z0-9_]*)$/"; // 
-$text = '$abc1';
+$pattern = "/^\\$([a-zA-Z_]\w{0,})$/"; //
+$text = '$a';
 
 if(preg_match($pattern, $text, $matches)) {
    echo "Valid Variable";
