@@ -10,8 +10,25 @@ $config = include_once __DIR__.'/../config/application.config.php';
 echo "<html><body>";
 echo "<pre>";
 
-$pattern = '/^\$_{2}(\w{1,})\(\)$/'; // Magic Method Matching
-$text = '$__something()';
+function camelCase(array $matches) {
+    // SoMe_thInG -> someThing
+    $name = $matches[1]; // SoMe_thInG
+
+    $words = explode("_", $name);
+    $newName = strtolower($words[0]); // SoMe -> some
+    for($i=1; $i< count($words); $i++) {
+        $newName .= ucfirst(strtolower($words[$i])); 
+    }
+
+    return '$__'.$newName."()";
+}
+
+$pattern = '/^\$_{2}(\w{1,})\(\)$/i'; // Magic Method Matching
+$text = '$__SoMe_thInG()'; // -> $__someThing()
+
+$result = preg_replace_callback($pattern, 'camelCase',$text);
+
+var_dump($result);
 
 if(preg_match($pattern, $text, $matches)) {
    echo "Valid Variable";
