@@ -2,6 +2,8 @@
 //declare(strict_types=1);
 require_once __DIR__.'/../autoload.php';
 
+// require_once __DIR__.'/../vendor/autoload.php';
+
 use Libs\{Db\Customer, Db\Repository};
 
 
@@ -10,7 +12,11 @@ $config = include_once __DIR__.'/../config/application.config.php';
 echo "<html><body>";
 echo "<pre>";
 
-$pattern = '//'; 
+//$pattern = '/^<A\s+href="(.*?)"><\/a>$/i';
+//$pattern = '/ href="(.*?)"[ |>]/i';
+
+$pattern = '/"(.*?)"/'; //Christina’s idea, Nikola’s implementation
+
 $text = '<a href="URL"></a>'; // TODO: match the URL and echo it
 
 if(preg_match($pattern, $text, $matches)) {
