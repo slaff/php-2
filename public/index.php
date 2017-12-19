@@ -29,5 +29,12 @@ $xml = simplexml_load_file( __DIR__.'/../data/produce.xml' );
 </produce>
 */
 
-// TODO: get the price of Tomatos in High season
-echo $xml->vegetables->vegetable[1]->price[1]."\n";
+// get the price of Tomatos in High season
+$xml->vegetables->vegetable[0]->price[0] = 4.55;
+
+echo $xml->asXML();
+
+
+
+
+
