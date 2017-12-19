@@ -7,18 +7,11 @@ use Libs\{Db\Customer, Db\Repository};
 
 $config = include_once __DIR__.'/../config/application.config.php';
 
-try {
-    // Get a soap client instance passing WSDL URL
-    $client = new SoapClient("http://footballpool.dataaccess.eu/data/info.wso?wsdl");
+$repository = new Repository($config['db']);
+$customer = $repository->findById(4);
 
-    // Make the request. Returns a standard class object
-    $result = $client->TopGoalScorers(['iTopN' => 20]);
+// We work with the entity object
+$customer->lastname = "Spyrou";
 
-    // $result contains the result of the traversed object structure
-    var_dump($result->TopGoalScorersResult->tTopGoalScorer);
-} catch (SoapFault $e){
-    //Handle error
-}
-
-
-
+// TODO: Store the data in the database
+$repository->persist($customer);

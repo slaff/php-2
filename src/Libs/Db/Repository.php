@@ -52,8 +52,9 @@ class Repository {
   }
 
   public function persist(Customer $customer) {
-     // TODO: 1. have transaction 
-     //       2. try/catch mechanism
+     // TODO: 1. try/catch mechanism
+     //       2. have transaction 
+     //       
      //       3. Save the data in the database using named params 
      //          -- if user with id exists => update the customer
      //          -- otherwise -> insert the customer
