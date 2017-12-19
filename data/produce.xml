@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<produce xmlns:ea = "test">
+    <vegetables>
+        <vegetable unit = "pound">
+            <name> tomatoes </name>
+            <price season="high"> 2.99 </price>
+            <price season="low"> 2.99 </price>
+        </vegetable>
+        <vegetable unit = "pound">
+            <name> olives </name>
+            <price season="high"> 1.99 </price>
+            <price season="low"> 1.22 </price>
+        </vegetable>
+    </vegetables>
+</produce>
